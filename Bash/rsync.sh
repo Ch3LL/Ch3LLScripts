@@ -1,5 +1,5 @@
 #!/bin/bash
-RSYNC='RSYNC -avzh`
+RSYNC='rsync -avzh`
 SRCDIR=/home/
 SRCSRV=
 SRCUSR=
