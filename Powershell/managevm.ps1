@@ -8,9 +8,10 @@ function vmloop {
 
     $vmcommand = $args[0] 
     $vmcommandopt = $args[1]
+	$vmcommandopt2 = $args[2]
 	foreach ($i in $vms) {
 	
-        VBoxManage $vmcommand $i $vmcommandopt
+        VBoxManage $vmcommand $i $vmcommandopt $vmcommandopt2
 
 	}
 	
@@ -22,12 +23,16 @@ switch ($vmoption)
 	{
 		#start all the vm's specified in the $vm array
 		start {
-            vmloop startvm
+            vmloop startvm 
 		}
 		#save the state of all the vm's specified in the $vm array
 		save {			
 			vmloop controlvm savestate
 		}
+		snapshot {
+			vmloop snapshot take test
+		}
+
 	}
 
 
