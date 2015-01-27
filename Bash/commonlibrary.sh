@@ -1,6 +1,6 @@
 #!/bin/bash
 
-function continue {
+function forward {
 
 	read -p "Do you want to continue? (y/n)" ANSWER
 	case $ANSWER in
@@ -13,7 +13,7 @@ function continue {
 			;;
 		*)
 			echo "Unknown option. Try again"
-			continue
+			forward
 			exit
 			;;
 	esac
