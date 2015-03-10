@@ -2,7 +2,7 @@
 
 #Get all the plugins
 WGET='wget -P /tmp/'
-VIMRC='https://raw.githubusercontent.com/cbodden/dotfiles/master/vim/.vimrc'
+VIMRC='https://raw.githubusercontent.com/Ch3LL/Ch3LLScripts/master/Bash/vim/.vimrc'
 SOLARIZED='https://raw.githubusercontent.com/altercation/solarized/master/vim-colors-solarized/colors/solarized.vim' 
 VUNDLE='git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim'
 #RAINBOW='http://www.vim.org/scripts/download_script.php?src_id=4007'
@@ -51,7 +51,7 @@ function filecheck () {
 #The filecheck command is as follows -> filecheck <filetocheckifpluginalreadyinstalled> <commandtoinstallplugin> </tmp/nameoffile> <directoryofcurrentlyinstalledplugin> 
 echo "Now we are going to install plugins and the vimrc file"
 filecheck "$HOME/.vim/autoload/pathogen.vim" "$WGET $PATHOGEN" "/tmp/pathogen.vim" "$HOME/.vim/autoload/"
-#filecheck "$HOME/.vimrc" "$WGET $VIMRC" '/tmp/.vimrc' "$HOME"
+filecheck "$HOME/.vimrc" "$WGET $VIMRC" '/tmp/.vimrc' "$HOME"
 filecheck "$HOME/.vim/colors/solarized.vim" "$WGET $SOLARIZED" '/tmp/solarized.vim' "$HOME/.vim/colors/"
 #filecheck "$HOME/.vim/plugin/RainbowParenthsis.vim" "$WGET/RainbowParenthsis.vim $RAINBOW" '/tmp/RainbowParenthsis.vim' "$HOME/.vim/plugin/"
 
