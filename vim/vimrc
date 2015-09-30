@@ -1,5 +1,5 @@
 "These values are set for vundle settings
-set nocompatible " explicitly get out of vi-compatible mode
+"set nocompatible " explicitly get out of vi-compatible mode
 filetype off	" required
 
 syntax on "turn on color syntax highlighting 
