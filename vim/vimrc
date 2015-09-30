@@ -25,9 +25,7 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'saltstack/salt-vim'
 Plugin 'altercation/vim-colors-solarized'
-
-
-
+Plugin 'scrooloose/nerdtree'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -48,4 +46,19 @@ filetype plugin indent on    " load filetype plugins/indent settings
 " Vim UI {
 	colorscheme solarized
 	set background=dark
+        set statusline=%F%m%r%h%w\ [Lines:%L]\ [Type:%{&ff}]\ %y\ [%p%%]\ [%04l,%04v]\ [FoldLevel:%{foldlevel('.')}]
+        "              | | | | |          |          |        |    |       |    |                 |
+        "              | | | | |          |          |        |    |       |    |                 + current foldlevel
+        "              | | | | |          |          |        |    |       |    + current column
+        "              | | | | |          |          |        |    |       +-- current line
+        "              | | | | |          |          |        |    +-- current % into file
+        "              | | | | |          |          |        +-- current syntax in square brackets 
+        "              | | | | |          |          +-- current fileformat
+        "              | | | | |          +-- number of lines
+        "              | | | | +-- preview flag in square brackets
+        "              | | | +-- help flag in square brackets
+        "              | | +-- readonly flag in square brackets
+        "              | +-- rodified flag in square brackets
+        "              +-- full path to file in the buffer
+
 "}
