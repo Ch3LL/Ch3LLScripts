@@ -1,2 +1,2 @@
 test:
-  pillar: {{ pillar['getthis'] }}
+  pillar: {{ salt['pillar.get']('getthis', '') }}
