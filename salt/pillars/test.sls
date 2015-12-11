@@ -1,2 +1,2 @@
 test:
-  pillar: {{ salt['pillar.get']('getthis', '') }}
+  pillar: megangotit
