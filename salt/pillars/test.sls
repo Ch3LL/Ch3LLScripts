@@ -1,5 +1,5 @@
 include:
-  - /srv/salt/pillar/elk.sls
+  - /srv/salt/pillar/elk
 
 megan-test: jjjjjj
 test1: hhhhhh
