@@ -109,6 +109,14 @@ filetype plugin indent on    " load filetype plugins/indent settings
 	map <down> <nop>
 	map <left> <nop>
 	map <right> <nop>
+    " only need to type Q to paste recording
+	nnoremap Q @q
+    " when in visualation mode and pushing > it will keep the selection
+    " selected
+	vmap > >gv
+	vmap < <gv
+    " clone paragraph
+	noremap cp yap<S-}>p
 	
 	cmap w!! w !sudo tee % >/dev/null " incase you forget to sudo a file when saving - just type "w!!"
 	vmap > >gv
