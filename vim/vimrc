@@ -103,5 +103,13 @@ filetype plugin indent on    " load filetype plugins/indent settings
 " }
 "
 "Key mappings / bindings {
+	let mapleader=","
+    " no more up left right down keys. hjkl motherfucker.
+	map <up> <nop>
+	map <down> <nop>
+	map <left> <nop>
+	map <right> <nop>
+	
 	cmap w!! w !sudo tee % >/dev/null " incase you forget to sudo a file when saving - just type "w!!"
+	vmap > >gv
 "}
