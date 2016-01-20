@@ -26,6 +26,9 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'saltstack/salt-vim'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'scrooloose/nerdtree'
+Plugin 'kien/rainbow_parentheses.vim'
+Plugin 'kien/ctrlp.vim'
+Plugin 'tmhedberg/SimpylFold'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -117,6 +120,8 @@ filetype plugin indent on    " load filetype plugins/indent settings
 	vmap < <gv
     " clone paragraph
 	noremap cp yap<S-}>p
+    " add nerdtree shortcut mapping
+        nmap <leader>ne :NERDTree<cr>
 	
 	cmap w!! w !sudo tee % >/dev/null " incase you forget to sudo a file when saving - just type "w!!"
 	vmap > >gv
