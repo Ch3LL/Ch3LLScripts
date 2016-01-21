@@ -23,12 +23,15 @@ call vundle#begin()
 
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'saltstack/salt-vim'
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'scrooloose/nerdtree'
-Plugin 'kien/rainbow_parentheses.vim'
+Plugin 'saltstack/salt-vim' "salt plugin for sls files
+Plugin 'altercation/vim-colors-solarized' "color theme
+Plugin 'scrooloose/nerdtree' "file explorer
+Plugin 'kien/rainbow_parentheses.vim' "color the parenthesis
 Plugin 'kien/ctrlp.vim'
-Plugin 'tmhedberg/SimpylFold'
+Plugin 'tmhedberg/SimpylFold' " folding plugin
+Plugin 'airblade/vim-gitgutter' "shows git changes in file
+Plugin 'itchyny/lightline.vim' "adds the status bar below
+Plugin 'scrooloose/syntastic' "syntax checking plugin
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -49,13 +52,23 @@ filetype plugin indent on    " load filetype plugins/indent settings
 " Vim UI {
 	colorscheme solarized
 	set background=dark
+	set cursorline " highlight current line
+	set incsearch " search as characters are entered
+	set hlsearch "highlight matches
+	set laststatus=2 "always show the status line
+	set linespace=0 " don't insert an extra pixel lines between rows
+	set list "we do what to show tabs, to ensure we get them out of my files
+	set listchars=tab:>-,trail:- " show tabs and trailing
+	set cursorcolumn " don't highlight the current column
+	set number "turn on line numbers
+	set scrolloff=10 " keep 10 lines (top/bottom) for scope
         set statusline=%F%m%r%h%w\ [Lines:%L]\ [Type:%{&ff}]\ %y\ [%p%%]\ [%04l,%04v]\ [FoldLevel:%{foldlevel('.')}]
         "              | | | | |          |          |        |    |       |    |                 |
         "              | | | | |          |          |        |    |       |    |                 + current foldlevel
         "              | | | | |          |          |        |    |       |    + current column
         "              | | | | |          |          |        |    |       +-- current line
         "              | | | | |          |          |        |    +-- current % into file
-        "              | | | | |          |          |        +-- current syntax in square brackets 
+        "              | | | | |          |          |        +-- current syntax in square brackets
         "              | | | | |          |          +-- current fileformat
         "              | | | | |          +-- number of lines
         "              | | | | +-- preview flag in square brackets
@@ -63,13 +76,33 @@ filetype plugin indent on    " load filetype plugins/indent settings
         "              | | +-- readonly flag in square brackets
         "              | +-- rodified flag in square brackets
         "              +-- full path to file in the buffer
-
 "}
 
-" Vim FUNC {
-	set number
-" }
+" Text Formatting/Layout {
+	set ignorecase	"case insensitive by default
+"}
 
+"Plugin Settings {
+    "Rainbow Parenthesis {
+        au VimEnter * RainbowParenthesesToggle
+        au Syntax * RainbowParenthesesLoadRound
+        au Syntax * RainbowParenthesesLoadSquare
+        au Syntax * RainbowParenthesesLoadBraces
+        au Syntax * RainbowParenthesesLoadChevrons
+        au Syntax * RainbowParenthesesLoadRound
+    "}
+
+    "syntastic {
+    set statusline+=%#warningmsg#
+    set statusline+=%{SyntasticStatuslineFlag()}
+    set statusline+=%*
+
+    let g:syntastic_always_populate_loc_list = 1
+    let g:syntastic_auto_loc_list = 1
+    let g:syntastic_check_on_open = 1
+    let g:syntastic_check_on_wq = 0
+    "}
+"}
 
 " StatusLine {
   " http://stackoverflow.com/questions/5375240/a-more-useful-statusline-in-vim
