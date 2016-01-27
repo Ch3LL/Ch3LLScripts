@@ -32,6 +32,7 @@ Plugin 'tmhedberg/SimpylFold' " folding plugin
 Plugin 'airblade/vim-gitgutter' "shows git changes in file
 Plugin 'itchyny/lightline.vim' "adds the status bar below
 Plugin 'scrooloose/syntastic' "syntax checking plugin
+Plugin 'majutsushi/tagbar' "displays tags in a window
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -102,6 +103,12 @@ filetype plugin indent on    " load filetype plugins/indent settings
     let g:syntastic_check_on_open = 1
     let g:syntastic_check_on_wq = 0
     "}
+
+    "tagbar {
+    let g:tagbar_left = 1 " open up the tagbar on the left
+    let g:tagbar_autofocus = 1 "When opening up tagbar cursor will move to tagbar window
+   " let g:tagbar_autopreview = 1
+    "}
 "}
 
 "Key mappings / bindings {
@@ -113,6 +120,7 @@ filetype plugin indent on    " load filetype plugins/indent settings
 	map <right> <nop>
     " only need to type Q to paste recording
 	nnoremap Q @q
+	nnoremap <leader>tag :Tagbar<cr>
     " when in visualation mode and pushing > it will keep the selection
     " selected
 	vmap > >gv
