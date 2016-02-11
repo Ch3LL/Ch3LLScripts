@@ -1,4 +1,4 @@
-/tmp/access.conf:
+/etc/security/access.conf:
   file.managed:
     - user: root
     - group: root
