@@ -1,0 +1,46 @@
+# .bashrc
+
+# Source global definitions
+if [ -f /etc/bashrc ]; then
+	. /etc/bashrc
+fi
+
+SSH_ENV=$HOME/.ssh/environment
+
+function start_agent {
+	echo "Initializing new SSH agent..."
+	#spawn ssh-agent
+	/usr/bin/ssh-agent | sed 's/^echo/#echo/' > "${SSH_ENV}"
+	echo succeeded
+	chmod 600 "${SSH_ENV}"
+	. "${SSH_ENV}" > /dev/null
+	/usr/bin/ssh-add
+}
+
+if [ -f "${SSH_ENV}" ]; then
+	. "${SSH_ENV}" > /dev/null
+	ps -ef | grep ${SSH_AGENT_PID} | grep ssh-agent$ > /dev/null || {
+		start_agent;
+	}
+else
+	start_agent;
+fi
+
+#### tmux shell init #### {
+if [[ $USER != root ]]; then
+    tmux_count=`tmux ls | wc -l`
+    if [[ "$tmux_count" == "0" ]]; then
+        tmux -2
+    else
+        if [[ -z "$TMUX" ]]; then
+            if [[ "$tmux_count" == "1" ]]; then
+                session_id=1
+            else
+                session_id=`echo $tmux_count`
+            fi
+            tmux -2 new-session -d -s $session_id
+            tmux -2 attach-session -t $session_id
+        fi
+    fi
+fi
+#### tmux init end #### }
