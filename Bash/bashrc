@@ -29,18 +29,11 @@ fi
 #### tmux shell init #### {
 if [[ $USER != root ]]; then
     tmux_count=`tmux ls | wc -l`
+    tmux_session=`tmux display-message -p '#S'`
     if [[ "$tmux_count" == "0" ]]; then
         tmux -2
     else
-        if [[ -z "$TMUX" ]]; then
-            if [[ "$tmux_count" == "1" ]]; then
-                session_id=1
-            else
-                session_id=`echo $tmux_count`
-            fi
-            tmux -2 new-session -d -s $session_id
-            tmux -2 attach-session -t $session_id
-        fi
+        tmux attach -t $tmux_session
     fi
 fi
 #### tmux init end #### }
