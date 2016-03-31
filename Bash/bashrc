@@ -33,6 +33,7 @@ if [[ $USER != root ]]; then
     if [[ "$tmux_count" == "0" ]]; then
         tmux -2
     else
+        tmux detach-client
         tmux attach -t $tmux_session
     fi
 fi
