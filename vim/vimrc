@@ -7,7 +7,7 @@ syntax on "turn on color syntax highlighting
 "==============PATHOGEN============"
 " Use pathogen to easily modify the runtime path to include all
 " plugins under the ~/.vim/bundle directory
-execute pathogen#infect()
+" execute pathogen#infect()
 "syntax on
 "filetype plugin indent on 
 "==========PATHOGEN END============"
