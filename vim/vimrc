@@ -102,6 +102,10 @@ filetype plugin indent on    " load filetype plugins/indent settings
     let g:syntastic_auto_loc_list = 1
     let g:syntastic_check_on_open = 1
     let g:syntastic_check_on_wq = 0
+    let g:syntastic_mode_map = { 'mode': 'passive',
+                               \ 'active_filetypes': [],
+                               \ 'passive_filetypes': [''] }
+
     "}
 
     "tagbar {
@@ -129,5 +133,7 @@ filetype plugin indent on    " load filetype plugins/indent settings
 	noremap cp yap<S-}>p
     " add nerdtree shortcut mapping
         nmap <leader>ne :NERDTree<cr>
+        nmap <leader>ts :SyntasticToggleMode<cr>
+        nmap <leader>sc :SyntasticCheck<cr>
 	
 "}
