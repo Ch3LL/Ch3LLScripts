@@ -81,6 +81,7 @@ filetype plugin indent on    " load filetype plugins/indent settings
 
 " Text Formatting/Layout {
 	set ignorecase	"case insensitive by default
+	set expandtab
 "}
 
 "Plugin Settings {
