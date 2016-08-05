@@ -1,3 +1,3 @@
 run_command:
   cmd.run:
-    - name: touch /tmp/test
+    - name: touch /tmp/test/
