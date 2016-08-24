@@ -33,6 +33,7 @@ Plugin 'airblade/vim-gitgutter' "shows git changes in file
 Plugin 'itchyny/lightline.vim' "adds the status bar below
 Plugin 'scrooloose/syntastic' "syntax checking plugin
 Plugin 'majutsushi/tagbar' "displays tags in a window
+Plugin 'tpope/vim-fugitive'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -134,7 +135,8 @@ filetype plugin indent on    " load filetype plugins/indent settings
 	noremap cp yap<S-}>p
     " add nerdtree shortcut mapping
         nmap <leader>ne :NERDTree<cr>
-        nmap <leader>ts :SyntasticToggleMode<cr>
+        nmap <leader>st :SyntasticToggleMode<cr>
         nmap <leader>sc :SyntasticCheck<cr>
-	
+        nmap <leader>tt :TagbarToggle<cr>
+        nmap <leader>ts :TagbarShowTag<cr>
 "}
