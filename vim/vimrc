@@ -140,3 +140,7 @@ filetype plugin indent on    " load filetype plugins/indent settings
         nmap <leader>tt :TagbarToggle<cr>
         nmap <leader>ts :TagbarShowTag<cr>
 "}
+
+"pdb setting : insert pdb breakpoints
+imap <leader>b import pdb;pdb.set_trace()
+au BufRead *.py nmap <leader>py :!python %
