@@ -144,4 +144,6 @@ filetype plugin indent on    " load filetype plugins/indent settings
 "thanks to http://shanit.blogspot.com/2010/06/debugging-python-with-pdb-and-ipython.html
 "pdb setting : insert pdb breakpoints
 imap <leader>b import pdb;pdb.set_trace()
+"import pudb
+imap <leader>p import pudb; pu.db
 au BufRead *.py nmap <leader>py :!python %
