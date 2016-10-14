@@ -34,6 +34,10 @@ Plugin 'itchyny/lightline.vim' "adds the status bar below
 Plugin 'scrooloose/syntastic' "syntax checking plugin
 Plugin 'majutsushi/tagbar' "displays tags in a window
 Plugin 'tpope/vim-fugitive'
+Plugin 'Valloric/YouCompleteMe' "autocomplete
+    " for youcompleteme plugin you need to install the following: sudo dnf install automake gcc gcc-c++ kernel-devel cmake python-devel python3-devel (fedora)
+    " also need to compile. check installation instructions
+Plugin 'vim-scripts/indentpython.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -83,6 +87,17 @@ filetype plugin indent on    " load filetype plugins/indent settings
 " Text Formatting/Layout {
 	set ignorecase	"case insensitive by default
 	set expandtab
+" thanks to https://realpython.com/blog/python/vim-and-python-a-match-made-in-heaven/
+" PEP8 indentation
+au BufNewFile,BufRead *.py
+    \ set tabstop=4 |
+    \ set softtabstop=4 |
+    \ set shiftwidth=4 |
+    \ set textwidth=79 |
+    \ set expandtab |
+    \ set autoindent |
+    \ set fileformat=unix |
+
 "}
 
 "Plugin Settings {
@@ -115,6 +130,10 @@ filetype plugin indent on    " load filetype plugins/indent settings
     let g:tagbar_autofocus = 1 "When opening up tagbar cursor will move to tagbar window
    " let g:tagbar_autopreview = 1
     "}
+
+    "autocompleteme {
+    let g:ycm_autoclose_preview_window_after_completion=1
+    "}
 "}
 
 "Key mappings / bindings {
@@ -133,17 +152,27 @@ filetype plugin indent on    " load filetype plugins/indent settings
 	vmap < <gv
     " clone paragraph
 	noremap cp yap<S-}>p
-    " add nerdtree shortcut mapping
+    " add plugin shortcut mappings
         nmap <leader>ne :NERDTree<cr>
         nmap <leader>st :SyntasticToggleMode<cr>
         nmap <leader>sc :SyntasticCheck<cr>
         nmap <leader>tt :TagbarToggle<cr>
         nmap <leader>ts :TagbarShowTag<cr>
+        map <leader>go  :YcmCompleter GoToDefinitionElseDeclaration<CR>
+
+
+    "PYTHON DEBUGGERS
+    "thanks to http://shanit.blogspot.com/2010/06/debugging-python-with-pdb-and-ipython.html
+    "pdb setting : insert pdb breakpoints
+        imap <leader>b import pdb;pdb.set_trace()
+    "import pudb
+        imap <leader>p import pudb; pu.db
+        au BufRead *.py nmap <leader>py :!python %
 "}
 
-"thanks to http://shanit.blogspot.com/2010/06/debugging-python-with-pdb-and-ipython.html
-"pdb setting : insert pdb breakpoints
-imap <leader>b import pdb;pdb.set_trace()
-"import pudb
-imap <leader>p import pudb; pu.db
-au BufRead *.py nmap <leader>py :!python %
+
+
+
+
+
+
