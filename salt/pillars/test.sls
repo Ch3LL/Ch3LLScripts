@@ -1,4 +1,3 @@
 test: gitfs
 update: yes
-update: test_test
-
+update2: test_test
