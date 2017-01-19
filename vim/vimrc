@@ -38,6 +38,7 @@ Plugin 'Valloric/YouCompleteMe' "autocomplete
     " for youcompleteme plugin you need to install the following: sudo dnf install automake gcc gcc-c++ kernel-devel cmake python-devel python3-devel (fedora)
     " also need to compile. check installation instructions
 Plugin 'vim-scripts/indentpython.vim'
+Plugin 'nvie/vim-flake8' "pep8 syntax checker
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
