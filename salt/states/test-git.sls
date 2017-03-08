@@ -1,0 +1,2 @@
+echo git:
+  cmd.run
