@@ -1,6 +1,6 @@
 #!/bin/bash
 
-declare -a ports=("4505" "4506")
+declare -a ports=("20" "21" "22" "23" "25" "42" "43" "49" "53" "67" "68" "69" "70" "80" "88" "123" "135" "137" "139" "143" "161" "162" "389" "443" "445" "464" "513" "587" "636" "1080" "1194" "993" "995" "1025" "1194" "1725" "1812" "1813" "3124" "3128" "5060" "5900" "6665" "6666" "6667" "6668" "6669" "6679" "6697" "8080")
 _SETUP_PORTS=False
 _TEST_PORTS=False
 
@@ -33,7 +33,6 @@ function result {
             ;;
         1)
             echo "The access to $PORT failed"
-            exit
             ;;
         *)
             echo "Unknown exit error for the $PORT command. Exiting script."
@@ -51,8 +50,8 @@ function test_ports {
 }
 
 function start_ports {
-    for port in ${ports}; do
-        test_port=$(nc -lk ${port} &)
+    for port in "${ports[@]}"; do
+        nc -lk ${port} &
     done
 }
 
