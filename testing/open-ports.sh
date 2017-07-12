@@ -44,7 +44,7 @@ function result {
 
 function test_ports {
     for port in "${ports[@]}"; do
-        test_port=$(nc -z ${HOST} ${port})
+        test_port=$(nc ${HOST} ${port} -e "/bin/bash echo test")
         rc=$?
         result $rc port_${port}
     done
