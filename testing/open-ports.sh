@@ -33,6 +33,7 @@ function result {
             ;;
         1)
             echo "The access to $PORT failed"
+            exit 1
             ;;
         *)
             echo "Unknown exit error for the $PORT command. Exiting script."
