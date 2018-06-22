@@ -1,3 +1,7 @@
+{%- import_yaml 'versions' as versions -%}
+server-1:
+  Version: {{versions._Versions['comp1']}}
+
 test: gitfs
 update: yes
 update2: test_test
