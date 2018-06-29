@@ -1,4 +1,4 @@
-{%- import_yaml 'versions' as versions -%}
+{%- import_yaml 'versions.sls' as versions -%}
 server-1:
   Version: {{versions._Versions['comp1']}}
 
