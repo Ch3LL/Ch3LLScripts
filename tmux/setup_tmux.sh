@@ -1,21 +1,19 @@
 #!/bin/bash
-
 SESSION=$USER
-window1="M1"
-window2="M2"
-window3="min1"
-window4="min2"
-main_dir='~/vagrant/vagrant'
 
-# Setup new session
+windows=("triage" "triage1" "tests" "tests2" "tests3" "tests4" "TODO")
+counter=0
+
+# setup initial session
 tmux -2 new-session -d -s $SESSION
 
-# Setup a window for tailing log files
-tmux new-window -t $SESSION:1 -n $window1
-tmux send-keys "cd $main_dir" C-m
-tmux new-window -t $SESSION:2 -n $window2
-tmux send-keys "cd $main_dir" C-m
-tmux new-window -t $SESSION:3 -n $window3
-tmux send-keys "cd $main_dir" C-m
-tmux new-window -t $SESSION:4 -n $window4
-tmux send-keys "cd $main_dir" C-m
+# setup windows
+for window in "${windows[@]}"; do
+    if [ ${counter} == 0 ]; then
+        tmux rename-window -t $SESSION:0 $window
+    else
+        tmux new-window -t $SESSION:${counter} -n $window
+    fi
+    tmux send-keys "cd $main_dir" C-m
+    counter=$((counter+1))
+done
