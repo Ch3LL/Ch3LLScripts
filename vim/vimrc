@@ -166,6 +166,8 @@ au BufNewFile,BufRead *.py
     "thanks to http://shanit.blogspot.com/2010/06/debugging-python-with-pdb-and-ipython.html
     "pdb setting : insert pdb breakpoints
         imap <leader>b import pdb;pdb.set_trace()
+    " import pudb remote
+        imap <leader>r from pudb.remote import set_trace; set_trace(term_size=(80, 24))
     "import pudb
         imap <leader>p import pudb; pu.db
         au BufRead *.py nmap <leader>py :!python %
