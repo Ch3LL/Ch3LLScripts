@@ -161,7 +161,11 @@ au BufNewFile,BufRead *.py
         nmap <leader>ts :TagbarShowTag<cr>
         map <leader>go  :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
+    "COMMAND LINE MODE MAPS
+    "save file even if forgot to sudo
+        cmap w!! w !sudo tee > /dev/null %
 
+    "INSERT MAPS
     "PYTHON DEBUGGERS
     "thanks to http://shanit.blogspot.com/2010/06/debugging-python-with-pdb-and-ipython.html
     "pdb setting : insert pdb breakpoints
