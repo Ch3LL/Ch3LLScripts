@@ -161,6 +161,7 @@ au BufNewFile,BufRead *.py
         nmap <leader>tt :TagbarToggle<cr>
         nmap <leader>ts :TagbarShowTag<cr>
         map <leader>go  :YcmCompleter GoToDefinitionElseDeclaration<CR>
+        map <leader>ld :Linediff <CR>
 
     "COMMAND LINE MODE MAPS
     "save file even if forgot to sudo
@@ -177,10 +178,3 @@ au BufNewFile,BufRead *.py
         imap <leader>p import pudb; pu.db
         au BufRead *.py nmap <leader>py :!python %
 "}
-
-
-
-
-
-
-
