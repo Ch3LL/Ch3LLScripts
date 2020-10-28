@@ -57,6 +57,10 @@ filetype plugin indent on    " load filetype plugins/indent settings
 " Put your non-Plugin stuff after this line
 "==============VUNDLE END===================
 
+" General Settings {
+        set pastetoggle=<F2>
+"}
+
 " Vim UI {
 	colorscheme solarized
 	set background=dark
